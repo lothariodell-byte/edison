@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EDISON GUY-AB</title>
+
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* ===== FACEBOOK DARK THEME COLORS ===== */
+:root {
+    --bg-main: #18191a;
+    --bg-card: #242526;
+    --bg-nav: #242526;
+    --border: #3a3b3c;
+    --text-main: #e4e6eb;
+    --text-soft: #b0b3b8;
+    --fb-blue: #1877f2;
+    --glow: rgba(24,119,242,0.6);
+}
+
+/* ===== BASE ===== */
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    background: var(--bg-main);
+    color: var(--text-main);
+    text-align: center;
+    overflow-x: hidden;
+}
+
+h1 {
+    color: var(--fb-blue);
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+
+/* ===== NAV ===== */
+.nav {
+    background: var(--bg-nav);
+    padding: 14px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+.nav button {
+    background: var(--bg-card);
+    color: var(--fb-blue);
+    font-weight: 800;
+    padding: 10px 26px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+}
+
+.nav button:hover {
+    background: #3a3b3c;
+    box-shadow: 0 0 20px var(--glow);
+    transform: translateY(-2px);
+}
+
+/* ===== SECTIONS ===== */
+.section {
+    display: none;
+    padding: 80px 20px;
+    min-height: 85vh;
+}
+
+.section.active {
+    display: block;
+    animation: fadeSlide 0.7s ease;
+}
+
+@keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== HOME ===== */
+#home {
+    background: linear-gradient(180deg, #242526, #18191a);
+}
+
+#home h1 {
+    color: #e4e6eb;
+    font-size: 46px;
+    text-shadow: 0 0 25px rgba(24,119,242,0.5);
+}
+
+/* ===== AUTOBIO ===== */
+#auto {
+    background: var(--bg-main);
+}
+
+#auto p {
+    max-width: 850px;
+    margin: auto;
+    padding: 36px;
+    background: var(--bg-card);
+    border-radius: 16px;
+    font-size: 18px;
+    line-height: 1.9;
+    color: var(--text-soft);
+    border: 1px solid var(--border);
+}
+
+#auto p:hover {
+    box-shadow: 0 0 30px var(--glow);
+}
+
+/* ===== GALLERY ===== */
+#gallery {
+    background: var(--bg-main);
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.photo {
+    position: relative;
+}
+
+.photo img {
+    width: 260px;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 14px;
+    cursor: pointer;
+    border: 1px solid var(--border);
+}
+
+.photo img:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 30px var(--glow);
+}
+
+/* NUMBER */
+.photo span {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--fb-blue);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 14px;
+}
+
+/* ===== SONG ===== */
+#song {
+    background: var(--bg-main);
+}
+
+#song img {
+    width: 80%;
+    max-width: 620px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+}
+
+#song a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 32px;
+    background: var(--fb-blue);
+    color: #fff;
+    border-radius: 999px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+#song a:hover {
+    box-shadow: 0 0 25px var(--glow);
+}
+
+/* ===== VIDEO ===== */
+#video {
+    background: var(--bg-main);
+}
+
+video {
+    width: 85%;
+    max-width: 900px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: 0 0 25px var(--glow);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    #home h1 { font-size: 32px; }
+    .photo img { width: 45vw; height: auto; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="nav">
+    <button onclick="show('home')">HOME</button>
+    <button onclick="show('auto')">AUTOBIOGRAPHY</button>
+    <button onclick="show('gallery')">GALLERY</button>
+    <button onclick="show('song')">SONG</button>
+    <button onclick="show('video')">VIDEO</button>
+</div>
+
+<!-- HOME -->
+<div id="home" class="section active">
+    <h1>HI! AKO PO SI<br>EDISON GUY-AB 👋</h1>
+</div>
+
+<!-- AUTOBIO -->
+<div id="auto" class="section">
+    <h1>MY AUTOBIOGRAPHY</h1>
+    <p>
+        My name is Edison Mapinogos Guy-ab, a student of BIT 4-T WFT.
+        I was born on August 30, 2002, in Marikina City, Philippines.
+        <br><br>
+        I enjoy activities like hiking, welding, video games, and billiards.
+        Dedication and hard work guide me toward my goals.
+    </p>
+</div>
+
+<!-- GALLERY -->
+<div id="gallery" class="section">
+    <h1>MY GALLERY</h1>
+    <div class="gallery">
+        <div class="photo"><span>1</span><img src="s/e1.jpg"></div>
+        <div class="photo"><span>2</span><img src="s/e2.jpg"></div>
+        <div class="photo"><span>3</span><img src="s/e3.jpg"></div>
+        <div class="photo"><span>4</span><img src="s/e4.jpg"></div>
+        <div class="photo"><span>5</span><img src="s/e5.jpg"></div>
+        <div class="photo"><span>6</span><img src="s/e6.jpg"></div>
+        <div class="photo"><span>7</span><img src="s/e7.jpg"></div>
+    </div>
+</div>
+
+<!-- SONG -->
+<div id="song" class="section">
+    <h1>TROUBLE – FRANK OCEAN</h1>
+    <img src="s/f.jpg"><br>
+    <a href="#">LISTEN NOW</a>
+</div>
+
+<!-- VIDEO -->
+<div id="video" class="section">
+    <h1>MY VIDEO</h1>
+    <video controls>
+        <source src="s/e.mp4" type="video/mp4">
+    </video>
+</div>
+
+<script>
+function show(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+</script>
+
+</body>
+</html>
+
+
+
